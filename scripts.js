@@ -1,4 +1,5 @@
-
+const apiKey = "54bdf4f550b10116a1c4b9863f3652f4";
+const appID = "b74798d6";
 const stationCRS = "WHP"; //west hampstead thameslink
 const destinationCRS = "STP"; //St Pancras
 const baseURL = "https://transportapi.com/v3/uk/train/station/WHP/live.json?";
@@ -38,6 +39,9 @@ function displayResults(trainData){
             let destinationNode = document.createElement('div');
                 destinationNode.innerHTML = dataArray[service].destination;
                 serviceNode.appendChild(destinationNode);
+
+                      
+                        
            
            
             let departureNode = document.createElement('div');
@@ -56,7 +60,18 @@ function displayResults(trainData){
             
             document.querySelector('.services-wh').appendChild(serviceNode);
 
+            serviceNode.style.margin = '1rem';
+            serviceNode.style.backgroundColor = 'green';
+
+            if(statusNode.innerHTML == "LATE"){
+                serviceNode.style.backgroundColor = "red";
+            }
+
     }    
+
+    //styling
+
+    
     
    
     //This code is for the testing of access to the transport web service
